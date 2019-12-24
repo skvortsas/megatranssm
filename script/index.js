@@ -32,11 +32,17 @@ function loadWritesFrontPage(){
     let informationDescription = document.createElement('p');
 
     informationContainer.style.marginTop = '15%';
+    informationHeader.style.marginLeft = '30px';
+    informationHeader.style.marginBottom = 'auto';
+    informationHeader.style.width = '450px';
     informationHeader.style.fontFamily = 'Caveat, cursive';
     informationHeader.style.color = '#ce9f51';
     informationHeader.style.fontSize = '50px';
     informationHeader.textContent = 'Инвестирйте в своё время';
+    informationDescription.style.marginLeft = '30px';
+    informationDescription.style.width = '450px';
     informationDescription.style.color = 'gray';
+    informationDescription.style.fontFamily = 'Montserrat';
     informationDescription.textContent = informationDescriptionText;
 
     informationContainer.appendChild(informationHeader);
