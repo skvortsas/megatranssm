@@ -1,3 +1,5 @@
+import aos from 'aos';
+aos.init();
 setTimeout(getFrontPage, 5000);
 
 function getFrontPage(){
@@ -36,6 +38,8 @@ function loadWritesFrontPage(){
     informationHeader.style.color = '#ce9f51';
     informationHeader.style.fontSize = '50px';
     informationHeader.textContent = 'Инвестирйте в своё время';
+    informationHeader.setAttribute('data-aos', 'fade-up');
+    informationHeader.setAttribute('data-aos-delay', '10000');
     informationDescription.style.color = 'gray';
     informationDescription.textContent = informationDescriptionText;
 
