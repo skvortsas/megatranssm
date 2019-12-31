@@ -57,3 +57,7 @@ body{
     height: 50px;
     animation: show 0s 4s forwards;
 }
+
+.information-header{
+    font-size: 110px;
+}
