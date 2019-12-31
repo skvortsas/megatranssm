@@ -1,6 +1,8 @@
 import aos from 'aos';
-aos.init();
+import '../style/index.scss';
+import '../node_modules/aos/dist/aos.css';
 setTimeout(getFrontPage, 5000);
+aos.init();
 
 function getFrontPage(){
     let logo = document.getElementsByClassName('logo')[0];
@@ -8,16 +10,11 @@ function getFrontPage(){
     let body = document.getElementsByTagName('body')[0];
     let containerGolden = document.createElement('div');
 
-    containerGolden.classList.add('containerFrontPage');
+    containerGolden.classList.add('container-front-page');
     
-    logo.style['background-size'] = '55px';
-    logo.style.width = '55px';
-    logo.style.height = '25px';
-    logo.style.marginLeft = '0';
+
     containerLogo.style.marginTop = '0';
     body.style.backgroundColor = '#202020';
-    containerGolden.style.border = '2px solid #ce9f51';
-    containerGolden.style.minHeight = '97vh';
     logo.style.opacity = '1';
     logo.style.marginLeft = '5px';
     logo.style.marginTop = '5px';
@@ -28,27 +25,23 @@ function getFrontPage(){
 
 function loadWritesFrontPage(){
     let informationDescriptionText = 'Мега Транс всегда заботится о своих клиентах, с нами Вы можете позволить себе не волноваться и провести время как всегда хотели.';
-    let containerGolden = document.getElementsByClassName('containerFrontPage')[0];
+    let containerGolden = document.getElementsByClassName('container-front-page')[0];
     let informationContainer = document.createElement('div');
     let informationHeader = document.createElement('p');
     let informationDescription = document.createElement('p');
 
-    informationContainer.style.marginTop = '15%';
+    informationContainer.classList.add('information-container');
+    
     informationHeader.classList.add('information-header');
-    informationHeader.style.marginLeft = '30px';
-    informationHeader.style.marginBottom = 'auto';
-    informationHeader.style.width = '100%';
-    informationHeader.style.fontFamily = 'Caveat, cursive';
-    informationHeader.style.color = '#ce9f51';
-    informationHeader.textContent = 'Инвестирйте в своё время';
+    informationHeader.textContent = 'Инвестируйте в своё время';
     informationHeader.setAttribute('data-aos', 'fade-up');
-    informationHeader.setAttribute('data-aos-delay', '10000');
-    informationDescription.style.marginLeft = '30px';
-    informationDescription.style.fontSize = '20px';
-    informationDescription.style.width = '60%';
-    informationDescription.style.color = 'gray';
-    informationDescription.style.fontFamily = 'Montserrat';
+    informationHeader.setAttribute('data-aos-duration', '1500');
+
+    informationDescription.classList.add('information-description');
     informationDescription.textContent = informationDescriptionText;
+    informationDescription.setAttribute('data-aos', 'fade-up');
+    informationDescription.setAttribute('data-aos-duration', '1500');
+    informationDescription.setAttribute('data-aos-delay', '300');
 
     informationContainer.appendChild(informationHeader);
     informationContainer.appendChild(informationDescription);

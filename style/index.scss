@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
 @keyframes fadeIn{
     from{ opacity: 0;}
     to{ opacity: 1;
@@ -58,6 +61,28 @@ body{
     animation: show 0s 4s forwards;
 }
 
-.information-header{
-    font-size: 110px;
+.container-front-page{
+    border: 2px solid #ce9f51;
+    min-height: 97vh;
+
+    .information-container{
+        margin-top: 10%;
+
+        .information-header{
+            font-size: 110px;
+            margin-left: 30px;
+            margin-bottom: auto;
+            width: 100%;
+            font-family: Caveat, cursive;
+            color: #ce9f51;
+        }
+
+        .information-description{
+            margin-left: 30px;
+            font-size: 20px;
+            width: 60%;
+            color: gray;
+            font-family: Montserrat;
+        }
+    }
 }
