@@ -9,18 +9,40 @@ function getFrontPage(){
     let containerLogo = document.getElementsByClassName('container')[0];
     let body = document.getElementsByTagName('body')[0];
     let containerGolden = document.createElement('div');
+    let arrowDown = document.createElement('div');
 
     containerGolden.classList.add('container-front-page');
-    
+    arrowDown.classList.add('arrow-down');
 
     containerLogo.style.marginTop = '0';
     body.style.backgroundColor = '#202020';
     logo.style.opacity = '1';
-    logo.style.marginLeft = '5px';
-    logo.style.marginTop = '5px';
+    logo.style.marginLeft = '0';
+    logo.style.marginTop = '0';
     containerGolden.appendChild(logo);
+    containerGolden.appendChild(arrowDown);
     body.appendChild(containerGolden);
     loadWritesFrontPage();
+    loadMenuButton();
+}
+
+function loadMenuButton(){
+    let menuContainer = document.createElement('div');
+    let topBorder = document.createElement('div');
+    let bottomBorder = document.createElement('div');
+    let containerGolden = document.getElementsByClassName('container-front-page')[0];
+
+    menuContainer.classList.add('menu-container');
+    topBorder.classList.add('border-menu-top');
+    bottomBorder.classList.add('border-menu-bottom');
+
+    menuContainer.setAttribute('data-aos', 'flip-right');
+    menuContainer.setAttribute('data-aos-duration', 2000);
+    menuContainer.setAttribute('data-aos-delay', 1000);
+
+    menuContainer.appendChild(topBorder);
+    menuContainer.appendChild(bottomBorder);
+    containerGolden.appendChild(menuContainer);
 }
 
 function loadWritesFrontPage(){

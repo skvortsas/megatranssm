@@ -24,18 +24,22 @@ body{
 
 .m{
     background-image: url(../img/M.svg);
-    width: 26px;
-    height: 24px;
+    background-repeat: no-repeat;
+    background-size: 52px;
+    width: 52px;
+    height: 48px;
     animation: fadeIn 4s ease-in;
     opacity: 0;
 }
 
 .t{
     background-image: url(../img/T.svg);
-    margin-left: 25px;
-    margin-top: 1px;
-    width: 25px;
-    height: 25px;
+    background-repeat: no-repeat;
+    background-size: 50px;
+    margin-left: 50px;
+    margin-top: 2px;
+    width: 50px;
+    height: 50px;
     opacity: 0;
     animation: fadeIn 2s ease-in;
     animation-delay: 2s;
@@ -45,8 +49,8 @@ body{
     position: absolute;
     left:45%;
     top:0;
-    width:110px;
-    height: 50px;
+    width:220px;
+    height: 100px;
 }
 
 .logo{
@@ -54,23 +58,85 @@ body{
     opacity: 0;
     z-index: 9;
     background-image: url(../img/full-logo.svg);
-    background-size: 110px;
+    background-size: 220px;
     background-repeat: no-repeat;
-    width: 110px;
-    height: 50px;
+    width: 220px;
+    height: 100px;
     animation: show 0s 4s forwards;
 }
 
 .container-front-page{
-    border: 2px solid #ce9f51;
-    min-height: 97vh;
+    position: relative;
+    padding: 1%;
+    background-image: linear-gradient(#ce9f51 4px, transparent 0), linear-gradient(to left, #ce9f51 4px, transparent 0), linear-gradient(to right, #ce9f51 4px, transparent 0), linear-gradient(to top, #ce9f51 4px, transparent 0), linear-gradient(to top, #ce9f51 4px, transparent 0);
+    background-position: 0 0, 100% 0, 0 0;
+    background-size: 100%, 100%, 100%, 48%, 48%;
+    background-repeat: no-repeat;
+    min-height: 94vh;
+
+    .arrow-down{
+        position: absolute;
+        bottom:0;
+        left: 49%;
+        background-image: url(../img/angle-arrow-down.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 2%;
+        height: 30px;
+        cursor: pointer;
+        transition: all 500ms;
+
+        &:hover{
+            transform: translateY(10px);
+        }
+    }
+
+    .menu-container{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        top: 0;
+        right: 0;
+        background-color: #ce9f51;
+        cursor: pointer;
+
+        .border-menu-top{
+            position: absolute;
+            top: 35%;
+            left: 25%;
+            background-color: black;
+            width: 50%;
+            height: 3px;
+            transition: all 500ms;
+        }
+
+        .border-menu-bottom{
+            position: absolute;
+            bottom: 35%;
+            left: 25%;
+            background-color: black;
+            width: 50%;
+            height: 3px;
+            transition: all 500ms;
+        }
+
+        &:hover{
+
+            .border-menu-top{
+                transform: translateY(-3px);
+            }
+
+            .border-menu-bottom{
+                transform: translateY(3px);
+            }
+        }
+    }
 
     .information-container{
-        margin-top: 10%;
+        margin-top: 15%;
 
         .information-header{
             font-size: 110px;
-            margin-left: 30px;
             margin-bottom: auto;
             width: 100%;
             font-family: Caveat, cursive;
@@ -80,7 +146,7 @@ body{
         .information-description{
             margin-left: 30px;
             font-size: 20px;
-            width: 60%;
+            width: 50%;
             color: gray;
             font-family: Montserrat;
         }
