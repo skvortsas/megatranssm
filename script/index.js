@@ -23,6 +23,16 @@ function getFrontPage(){
     containerGolden.appendChild(arrowDown);
     body.appendChild(containerGolden);
     loadWritesFrontPage();
+    loadMenuButton();
+}
+
+function loadMenuButton(){
+    let menuContainer = document.createElement('div');
+    let containerGolden = document.getElementsByClassName('container-front-page')[0];
+
+    menuContainer.classList.add('menu-container');
+
+    containerGolden.appendChild(menuContainer);
 }
 
 function loadWritesFrontPage(){
