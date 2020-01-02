@@ -28,10 +28,20 @@ function getFrontPage(){
 
 function loadMenuButton(){
     let menuContainer = document.createElement('div');
+    let topBorder = document.createElement('div');
+    let bottomBorder = document.createElement('div');
     let containerGolden = document.getElementsByClassName('container-front-page')[0];
 
     menuContainer.classList.add('menu-container');
+    topBorder.classList.add('border-menu-top');
+    bottomBorder.classList.add('border-menu-bottom');
 
+    menuContainer.setAttribute('data-aos', 'flip-right');
+    menuContainer.setAttribute('data-aos-duration', 2000);
+    menuContainer.setAttribute('data-aos-delay', 1000);
+
+    menuContainer.appendChild(topBorder);
+    menuContainer.appendChild(bottomBorder);
     containerGolden.appendChild(menuContainer);
 }
 

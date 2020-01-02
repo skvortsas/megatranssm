@@ -84,6 +84,11 @@ body{
         width: 2%;
         height: 30px;
         cursor: pointer;
+        transition: all 500ms;
+
+        &:hover{
+            transform: translateY(10px);
+        }
     }
 
     .menu-container{
@@ -94,6 +99,37 @@ body{
         right: 0;
         background-color: #ce9f51;
         cursor: pointer;
+
+        .border-menu-top{
+            position: absolute;
+            top: 35%;
+            left: 25%;
+            background-color: black;
+            width: 50%;
+            height: 3px;
+            transition: all 500ms;
+        }
+
+        .border-menu-bottom{
+            position: absolute;
+            bottom: 35%;
+            left: 25%;
+            background-color: black;
+            width: 50%;
+            height: 3px;
+            transition: all 500ms;
+        }
+
+        &:hover{
+
+            .border-menu-top{
+                transform: translateY(-3px);
+            }
+
+            .border-menu-bottom{
+                transform: translateY(3px);
+            }
+        }
     }
 
     .information-container{
