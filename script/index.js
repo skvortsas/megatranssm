@@ -9,16 +9,18 @@ function getFrontPage(){
     let containerLogo = document.getElementsByClassName('container')[0];
     let body = document.getElementsByTagName('body')[0];
     let containerGolden = document.createElement('div');
+    let arrowDown = document.createElement('div');
 
     containerGolden.classList.add('container-front-page');
-    
+    arrowDown.classList.add('arrow-down');
 
     containerLogo.style.marginTop = '0';
     body.style.backgroundColor = '#202020';
     logo.style.opacity = '1';
-    logo.style.marginLeft = '5px';
-    logo.style.marginTop = '5px';
+    logo.style.marginLeft = '0';
+    logo.style.marginTop = '0';
     containerGolden.appendChild(logo);
+    containerGolden.appendChild(arrowDown);
     body.appendChild(containerGolden);
     loadWritesFrontPage();
 }
