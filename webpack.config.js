@@ -1,11 +1,18 @@
+/* eslint-disable no-undef */
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin'); 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './script/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
   },
   module: {
     rules: [
@@ -28,6 +35,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('style.css')
+    new ExtractTextPlugin('style.css'),
+    new HtmlWebpackPlugin({
+      template: 'index.html'
+    })
    ]
 };

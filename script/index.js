@@ -57,13 +57,13 @@ function loadWritesFrontPage(){
     informationHeader.classList.add('information-header');
     informationHeader.textContent = 'Инвестируйте в своё время';
     informationHeader.setAttribute('data-aos', 'fade-up');
-    informationHeader.setAttribute('data-aos-duration', '1500');
+    informationHeader.setAttribute('data-aos-duration', 1500);
 
     informationDescription.classList.add('information-description');
     informationDescription.textContent = informationDescriptionText;
     informationDescription.setAttribute('data-aos', 'fade-up');
-    informationDescription.setAttribute('data-aos-duration', '1500');
-    informationDescription.setAttribute('data-aos-delay', '300');
+    informationDescription.setAttribute('data-aos-duration', 1500);
+    informationDescription.setAttribute('data-aos-delay', 300);
 
     informationContainer.appendChild(informationHeader);
     informationContainer.appendChild(informationDescription);
