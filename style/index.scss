@@ -135,12 +135,20 @@ body{
     .information-container{
         margin-top: 15%;
 
+        @media screen and(max-width: 1400px){
+            margin-top: 10%;
+        }
+
         .information-header{
             font-size: 110px;
             margin-bottom: auto;
             width: 100%;
             font-family: Caveat, cursive;
             color: #ce9f51;
+
+            @media screen and (max-width: 1400px){
+                font-size: 90px;
+            }
         }
 
         .information-description{
@@ -149,6 +157,10 @@ body{
             width: 50%;
             color: gray;
             font-family: Montserrat;
+
+            @media screen and (max-width: 1400px){
+                width: 60%;
+            }
         }
     }
 }
