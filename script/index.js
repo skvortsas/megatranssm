@@ -1,27 +1,50 @@
 import aos from 'aos';
+import webfont from 'webfontloader';
 import '../style/index.scss';
 import '../node_modules/aos/dist/aos.css';
-setTimeout(getFrontPage, 5000);
+let logo = document.getElementsByClassName('logo')[0];
+logo.onanimationend = () => {
+    startWhenReady();
+    logo.onanimationend = () => {
+        //find the way to make one iteration better
+        //now if delete this onanimationend method, getFrontPage function calls endless times
+    };
+}
 aos.init();
+
+function startWhenReady(){
+    webfont.load({
+        google: {
+            families: ['Caveat', 'Montserrat']
+        },
+        active: () => {
+            //using slow internet google fonts would use alternative font until it loads the fonts you want
+            setTimeout(getFrontPage, 1500);
+        }
+    });
+}
 
 function getFrontPage(){
     let logo = document.getElementsByClassName('logo')[0];
     let containerLogo = document.getElementsByClassName('container')[0];
     let body = document.getElementsByTagName('body')[0];
     let containerGolden = document.createElement('div');
+    let wraper = document.createElement('div');
     let arrowDown = document.createElement('div');
+
+    wraper.classList.add('wraper');
 
     containerGolden.classList.add('container-front-page');
     arrowDown.classList.add('arrow-down');
 
-    containerLogo.style.marginTop = '0';
+    containerLogo.parentNode.removeChild(containerLogo);
     body.style.backgroundColor = '#202020';
     logo.style.opacity = '1';
     logo.style.marginLeft = '0';
-    logo.style.marginTop = '0';
     containerGolden.appendChild(logo);
     containerGolden.appendChild(arrowDown);
-    body.appendChild(containerGolden);
+    wraper.appendChild(containerGolden);
+    body.appendChild(wraper);
     loadWritesFrontPage();
     loadMenuButton();
 }
