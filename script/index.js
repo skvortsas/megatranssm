@@ -2,6 +2,8 @@ import aos from 'aos';
 import webfont from 'webfontloader';
 import '../style/index.scss';
 import '../node_modules/aos/dist/aos.css';
+import newPageCheck from './new-page.js';
+
 let logo = document.getElementsByClassName('logo')[0];
 logo.onanimationend = () => {
     startWhenReady();
@@ -18,7 +20,7 @@ function startWhenReady(){
             families: ['Caveat', 'Montserrat']
         },
         active: () => {
-            //using slow internet google fonts would use alternative font until it loads the fonts you want
+            //using slow internet - google fonts would use alternative font until it loads the fonts you want
             setTimeout(getFrontPage, 1500);
         }
     });
@@ -35,6 +37,7 @@ function getFrontPage(){
     wraper.classList.add('wraper');
 
     containerGolden.classList.add('container-front-page');
+    containerGolden.id = 0;
     arrowDown.classList.add('arrow-down');
 
     containerLogo.parentNode.removeChild(containerLogo);
@@ -47,6 +50,7 @@ function getFrontPage(){
     body.appendChild(wraper);
     loadWritesFrontPage();
     loadMenuButton();
+    newPageCheck();
 }
 
 function loadMenuButton(){
@@ -80,12 +84,12 @@ function loadWritesFrontPage(){
     informationHeader.classList.add('information-header');
     informationHeader.textContent = 'Инвестируйте в своё время';
     informationHeader.setAttribute('data-aos', 'fade-up');
-    informationHeader.setAttribute('data-aos-duration', 1500);
+    informationHeader.setAttribute('data-aos-duration', 1000);
 
     informationDescription.classList.add('information-description');
     informationDescription.textContent = informationDescriptionText;
     informationDescription.setAttribute('data-aos', 'fade-up');
-    informationDescription.setAttribute('data-aos-duration', 1500);
+    informationDescription.setAttribute('data-aos-duration', 1000);
     informationDescription.setAttribute('data-aos-delay', 300);
 
     informationContainer.appendChild(informationHeader);

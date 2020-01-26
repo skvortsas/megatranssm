@@ -50,6 +50,28 @@ body{
     animation-delay: 2s;
 }
 
+.advantage-note{
+    position: absolute;
+    top: 28%;
+    right: 15%;
+    color: rgb(125, 125, 125);
+    font-family: cursive;
+    font-size: 25px;
+}
+
+.advantage-2{
+    z-index: -1;
+    position: absolute;
+    right: 15%;
+    top: 35%;
+    background-image: url(../img/01.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    height: 400px;
+    width: 800px;
+}
+
 .preview-logo{
     position: absolute;
     left:45%;
