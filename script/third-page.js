@@ -1,9 +1,20 @@
 import pages from './storage';
 
 export default function thirdPage(informationContainer, informationHeader, informationDescription, pageNumber){
+    let note = document.getElementsByClassName('advantage-note')[0];
+    let image = document.getElementsByClassName('image')[0];
+
+    if (note){
+        note.parentNode.removeChild(note);
+    }
+    //delete this because we may have previous image and note
+    if (image){
+        image.parentNode.removeChild(image);
+    }
+
     informationContainer.style.marginTop = '20%';
-    informationHeader.style.width = '50%';
-    informationHeader.style.fontSize = '50px';
+    informationHeader.style.width = '40%';
+    informationHeader.style.fontSize = '35px';
     informationDescription.style.position = 'absolute';
     informationDescription.style.top = '15%';
     informationDescription.style.width = '70%';

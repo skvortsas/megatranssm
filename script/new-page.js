@@ -20,36 +20,42 @@ export default function newPageCheck(){
                 informationHeader.classList.remove('aos-animate');
                 informationDescription.classList.remove('aos-animate');
 
-                if(image)
+                if(image){
                     image.classList.remove('aos-animate');
+                    //image.parentNode.removeChild(image);
+                }
                 
-                if(note)
+                if(note){
                     note.classList.remove('aos-animate');
+                    //note.parentNode.removeChild(note);
+                }
 
                 setTimeout(() => {
                     getNewContent(informationHeader, pages[++containerGolden.id].informationHeader);
                     getNewContent(informationDescription, pages[containerGolden.id].informationDescription);
                     setPageStyle(containerGolden.id, informationHeader, informationDescription);
-                    allowScroll = true;
                 }, 1200);
-                //else if the user is trying to scroll up and current page is not the first one
+            //else if the user is trying to scroll up and current page is not the first one
         } else if ((e.deltaY < 0) && allowScroll && containerGolden.id > 0) {
             allowScroll = false;
 
+                if(image){
+                    image.classList.remove('aos-animate');
+                    //image.parentNode.removeChild(image);
+                }
+                
+                if(note){
+                    note.classList.remove('aos-animate');
+                    //note.parentNode.removeChild(note);
+                }
+
                 informationHeader.classList.remove('aos-animate');
                 informationDescription.classList.remove('aos-animate');
-
-                if(image)
-                    image.classList.remove('aos-animate');
-                
-                if(note)
-                    note.classList.remove('aos-animate');
 
                 setTimeout(() => {
                     getNewContent(informationHeader, pages[--containerGolden.id].informationHeader);
                     getNewContent(informationDescription, pages[containerGolden.id].informationDescription);
                     setPageStyle(containerGolden.id, informationHeader, informationDescription);
-                    allowScroll = true;
                 }, 1200);
         }
     });
@@ -71,6 +77,10 @@ function setPageStyle(pageNumber, informationHeader, informationDescription){
         default:
             console.error('undefined error');
     }
+
+    setTimeout(() => {
+        allowScroll = true;
+    }, 1000);
 }
 
 function getNewContent(element, newContent){

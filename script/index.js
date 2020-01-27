@@ -17,7 +17,7 @@ aos.init();
 function startWhenReady(){
     webfont.load({
         google: {
-            families: ['Caveat', 'Montserrat']
+            families: ['Comfortaa', 'Montserrat']
         },
         active: () => {
             //using slow internet - google fonts would use alternative font until it loads the fonts you want
