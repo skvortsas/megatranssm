@@ -59,12 +59,45 @@ body{
     font-size: 25px;
 }
 
+.advantage{
+    margin-left: 30px;
+    font-family: Comfortaa;
+    font-size: 50px;
+    color: #ce9f51;
+}
+
 .advantage-2{
     z-index: -1;
     position: absolute;
     right: 15%;
     top: 35%;
     background-image: url(../img/01.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    height: 400px;
+    width: 800px;
+}
+
+.advantage-3{
+    z-index: -1;
+    position: absolute;
+    right: 15%;
+    top: 35%;
+    background-image: url(../img/02.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    height: 400px;
+    width: 800px;
+}
+
+.advantage-4{
+    z-index: -1;
+    position: absolute;
+    right: 15%;
+    top: 35%;
+    background-image: url(../img/03.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     border: none;

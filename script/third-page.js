@@ -3,6 +3,7 @@ import pages from './storage';
 export default function thirdPage(informationContainer, informationHeader, informationDescription, pageNumber){
     let note = document.getElementsByClassName('advantage-note')[0];
     let image = document.getElementsByClassName('image')[0];
+    let advantage = document.getElementsByClassName('advantage')[0];
 
     if (note){
         note.parentNode.removeChild(note);
@@ -12,9 +13,13 @@ export default function thirdPage(informationContainer, informationHeader, infor
         image.parentNode.removeChild(image);
     }
 
-    informationContainer.style.marginTop = '20%';
-    informationHeader.style.width = '40%';
+    if (advantage){
+        advantage.parentNode.removeChild(advantage);
+    }
+
+    informationHeader.style.width = '45%';
     informationHeader.style.fontSize = '35px';
+    informationHeader.style.marginTop = '5%';
     informationDescription.style.position = 'absolute';
     informationDescription.style.top = '15%';
     informationDescription.style.width = '70%';
@@ -22,7 +27,8 @@ export default function thirdPage(informationContainer, informationHeader, infor
     informationDescription.style.fontSize = '35px';
 
     createImage(informationContainer, pageNumber);
-    pageNumber === '2' ? createNote(informationContainer, pages[pageNumber].note) : console.log('smth went wrong!');
+    createAdvantage(informationHeader, pages[pageNumber].advantage);
+    pageNumber === '2' ? createNote(informationContainer, pages[pageNumber].note) : false;
 }
 
 function createImage(informationContainer, pageNumber){
@@ -45,4 +51,14 @@ function createNote(informationContainer, noteContent){
     note.setAttribute('data-aos-delay', 400);
     note.textContent = noteContent;
     informationContainer.appendChild(note);
+}
+
+function createAdvantage(informationHeader, advantageContent){
+    let advantage = document.createElement('p');
+
+    advantage.classList.add('advantage');
+    advantage.setAttribute('data-aos', 'fade-up');
+    advantage.setAttribute('data-aos-duration', 1500);
+    advantage.textContent = advantageContent;
+    informationHeader.parentNode.insertBefore(advantage, informationHeader);
 }

@@ -13,6 +13,7 @@ export default function newPageCheck(){
     document.addEventListener('wheel', e => {
         let image = document.getElementsByClassName('image')[0];
         let note = document.getElementsByClassName('advantage-note')[0];
+        let advantage = document.getElementsByClassName('advantage')[0];
         //if the user is trying to scroll down and current page is not the last one
         if ((e.deltaY > 0) && allowScroll && containerGolden.id < pages.length - 1) {
             allowScroll = false;
@@ -22,12 +23,15 @@ export default function newPageCheck(){
 
                 if(image){
                     image.classList.remove('aos-animate');
-                    //image.parentNode.removeChild(image);
                 }
                 
                 if(note){
                     note.classList.remove('aos-animate');
-                    //note.parentNode.removeChild(note);
+                }
+
+                if(advantage){
+                    advantage.classList.remove('aos-animate');
+                    console.log(advantage);
                 }
 
                 setTimeout(() => {
@@ -41,12 +45,14 @@ export default function newPageCheck(){
 
                 if(image){
                     image.classList.remove('aos-animate');
-                    //image.parentNode.removeChild(image);
                 }
                 
                 if(note){
                     note.classList.remove('aos-animate');
-                    //note.parentNode.removeChild(note);
+                }
+
+                if(advantage){
+                    advantage.classList.remove('aos-animate');
                 }
 
                 informationHeader.classList.remove('aos-animate');
@@ -73,6 +79,12 @@ function setPageStyle(pageNumber, informationHeader, informationDescription){
             break;
         case '2':
             thirdPageStyle(informationContainer, informationHeader, informationDescription, pageNumber);
+            break;
+        case '3':
+            thirdPageStyle(informationContainer, informationHeader,informationDescription, pageNumber);
+            break;
+        case '4':
+            thirdPageStyle(informationContainer, informationHeader,informationDescription, pageNumber);
             break;
         default:
             console.error('undefined error');
