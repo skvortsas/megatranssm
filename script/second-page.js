@@ -27,4 +27,8 @@ export default function secondPage(informationContainer, informationHeader, info
     informationDescription.style.width = '100%';
     informationDescription.style.color = '#b7b7b7';
     informationDescription.style.fontWeight = '400';
+
+    if(window.matchMedia('(max-width: 1400px)').matches){
+        informationDescription.style.fontSize = '25px';
+    }
 }

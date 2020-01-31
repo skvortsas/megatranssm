@@ -26,6 +26,11 @@ export default function thirdPage(informationContainer, informationHeader, infor
     informationDescription.style.fontWeight = '900';
     informationDescription.style.fontSize = '35px';
 
+    if (window.matchMedia('(max-width: 1400px)').matches){
+        informationHeader.style.fontSize = '25px';
+        informationDescription.style.fontSize = '25px';
+    }
+
     createImage(informationContainer, pageNumber);
     createAdvantage(informationHeader, pages[pageNumber].advantage);
     pageNumber === '2' ? createNote(informationContainer, pages[pageNumber].note) : false;

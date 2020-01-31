@@ -57,6 +57,11 @@ body{
     color: rgb(125, 125, 125);
     font-family: Montserrat;
     font-size: 25px;
+
+    @media screen and (max-width: 1400px) {
+        font-size: 20px;
+        top: 25%;
+    }
 }
 
 .advantage{
@@ -64,6 +69,10 @@ body{
     font-family: Comfortaa;
     font-size: 50px;
     color: #ce9f51;
+
+    @media screen and (max-width: 1400px) {
+        font-size: 35px;
+    }
 }
 
 .advantage-2{
@@ -77,6 +86,11 @@ body{
     border: none;
     height: 400px;
     width: 800px;
+
+    @media screen and (max-width: 1400px) {
+        height: 300px;
+        width: 600px;
+    }
 }
 
 .advantage-3{
@@ -90,6 +104,11 @@ body{
     border: none;
     height: 400px;
     width: 800px;
+
+    @media screen and (max-width: 1400px) {
+        height: 290px;
+        width: 580px;
+    }
 }
 
 .advantage-4{
@@ -103,6 +122,11 @@ body{
     border: none;
     height: 400px;
     width: 800px;
+
+    @media screen and (max-width: 1400px) {
+        height: 300px;
+        width: 600px;
+    }
 }
 
 .preview-logo{
@@ -220,7 +244,7 @@ body{
             color: #ce9f51;
 
             @media screen and (max-width: 1400px){
-                font-size: 90px;
+                font-size: 55px;
             }
         }
 
