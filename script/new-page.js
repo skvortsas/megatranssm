@@ -2,6 +2,7 @@ import pages from './storage';
 import firstPageStyle from './first-page';
 import secondPageStyle from './second-page';
 import thirdPageStyle from './third-page';
+import contactPage from './contact-page';
 
 let allowScroll = true;
 
@@ -31,7 +32,6 @@ export default function newPageCheck(){
 
                 if(advantage){
                     advantage.classList.remove('aos-animate');
-                    console.log(advantage);
                 }
 
                 setTimeout(() => {
@@ -85,6 +85,9 @@ function setPageStyle(pageNumber, informationHeader, informationDescription){
             break;
         case '4':
             thirdPageStyle(informationContainer, informationHeader,informationDescription, pageNumber);
+            break;
+        case '5':
+            contactPage(informationContainer, pages, pageNumber);
             break;
         default:
             console.error('undefined error');

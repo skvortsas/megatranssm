@@ -8,7 +8,7 @@ export default function thirdPage(informationContainer, informationHeader, infor
     if (note){
         note.parentNode.removeChild(note);
     }
-    //delete this because we may have previous image and note
+    //delete this because we may have previous image and note and advantage
     if (image){
         image.parentNode.removeChild(image);
     }

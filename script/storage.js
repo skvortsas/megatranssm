@@ -28,6 +28,15 @@ let pages = [
                             +'при том же уровне услуги - вернём деньги!',
         informationDescription: '',
         advantage: 'Цена'
+    },
+    {
+        phoneCode: 'код города: +4812',
+        phoneSecretary: 'секретарь: 38-81-15',
+        phoneTransport: 'транс. отдел: 65-51-65',
+        company: 'Мега Транс',
+        adress: 'Россия, г. Смоленск ул. Нахимова д. 29',
+        mailHeader: 'Почта генерального директора:',
+        email: 'mega-trans-sm@mail.ru'
     }
 ]
 
