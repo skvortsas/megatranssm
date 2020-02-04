@@ -25,6 +25,10 @@ export default function thirdPage(informationContainer, informationHeader, infor
     informationDescription.style.width = '70%';
     informationDescription.style.fontWeight = '900';
     informationDescription.style.fontSize = '35px';
+    informationContainer.style.marginLeft = '5%';
+    informationContainer.style.marginRight = '20%';
+    informationContainer.style.marginTop = '15%';
+    informationContainer.style.padding = '0';
 
     if (window.matchMedia('(max-width: 1400px)').matches){
         informationHeader.style.fontSize = '25px';

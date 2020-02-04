@@ -15,6 +15,7 @@ export default function newPageCheck(){
         let image = document.getElementsByClassName('image')[0];
         let note = document.getElementsByClassName('advantage-note')[0];
         let advantage = document.getElementsByClassName('advantage')[0];
+        let contactInformation = document.getElementsByClassName('contact-information')[0];
         //if the user is trying to scroll down and current page is not the last one
         if ((e.deltaY > 0) && allowScroll && containerGolden.id < pages.length - 1) {
             allowScroll = false;
@@ -55,6 +56,10 @@ export default function newPageCheck(){
                     advantage.classList.remove('aos-animate');
                 }
 
+                if (contactInformation){
+                    removeContactPageContent(contactInformation);
+                }
+
                 informationHeader.classList.remove('aos-animate');
                 informationDescription.classList.remove('aos-animate');
 
@@ -65,6 +70,14 @@ export default function newPageCheck(){
                 }, 1200);
         }
     });
+}
+
+
+function removeContactPageContent(contactInformation){
+    contactInformation.classList.remove('aos-animate');
+    setTimeout(() => {
+        contactInformation.parentNode.removeChild(contactInformation);
+    }, 1000);
 }
 
 function setPageStyle(pageNumber, informationHeader, informationDescription){

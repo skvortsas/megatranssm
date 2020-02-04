@@ -8,7 +8,7 @@ let phoneSecretary = document.createElement('p')
 let phoneTransport = document.createElement('p');
 let mailHeader = document.createElement('p');
 let email = document.createElement('p');
-let formContainer = document.createElement('span');
+let formContainer = document.createElement('form');
 let formNote = document.createElement('p');
 let nameField = document.createElement('input');
 let phoneField = document.createElement('input');
@@ -40,6 +40,7 @@ export default function contactPage(mainContainer, pages, pageNumber){
     mainContainer.style.marginLeft = '0';
     mainContainer.style.marginRight = '0';
     mainContainer.style.marginTop = '0';
+    mainContainer.style.padding = '0 5%';
 
     //merging all together
     contactInformation.appendChild(informationContainer);
@@ -60,10 +61,16 @@ function addFormContent(pages, pageNumber){
     nameField.placeholder = 'Имя';
     vanishPlaceholder(nameField, 'Имя');
     phoneField.placeholder = 'Телефон';
+    phoneField.type = 'phone';
     vanishPlaceholder(phoneField, 'Телефон');
     emailField.placeholder = 'E-mail';
+    emailField.type = 'email';
     vanishPlaceholder(emailField, 'E-mail');
     sendButton.textContent = 'Отправить';
+
+    formContainer.onsubmit = event => {
+        event.preventDefault();
+    };
 
     //append all elements
     formContainer.appendChild(formNote);
