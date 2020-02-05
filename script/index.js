@@ -58,6 +58,7 @@ function loadMenuButton(){
     let topBorder = document.createElement('div');
     let bottomBorder = document.createElement('div');
     let containerGolden = document.getElementsByClassName('container-front-page')[0];
+    let collapsed = true;
 
     menuContainer.classList.add('menu-container');
     topBorder.classList.add('border-menu-top');
@@ -70,7 +71,42 @@ function loadMenuButton(){
     menuContainer.appendChild(topBorder);
     menuContainer.appendChild(bottomBorder);
     containerGolden.appendChild(menuContainer);
+
+    //adding stick animation on click
+    menuContainer.onclick = () => {
+        collapsed = !collapsed;
+        // console.log()
+
+        if(!collapsed) {
+            topBorder.style.transform = 'rotate(-90deg)';
+            setTimeout(() => {
+                topBorder.style.transform = 'translateX(-5px) rotate(-90deg)';
+
+                setTimeout(() => {
+                    topBorder.style.transform = 'translate(-5px, 6px) rotate(-90deg)';
+                }, 500);
+            }, 500);
+            bottomBorder.style.transform = 'rotate(90deg)';
+            setTimeout(() => {
+                bottomBorder.style.transform = 'translateX(5px) rotate(90deg)';
+            
+                setTimeout(() => {
+                    bottomBorder.style.transform = 'translate(5px, -6px) rotate(90deg)';
+                }, 500);
+            }, 500);
+        } else {
+            topBorder.style.transform = 'rotate(0)';
+           
+            bottomBorder.style.transform = 'rotate(0)';
+           
+        }
+    };
 }
+
+// function createMenu(collapsed){
+//     let menu = document.createElement('div');
+
+// }
 
 function loadWritesFrontPage(){
     let informationDescriptionText = 'Мега Транс всегда заботится о своих клиентах, с нами Вы можете позволить себе не волноваться и провести время как всегда хотели.';
