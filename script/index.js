@@ -46,8 +46,10 @@ function getFrontPage(){
     logo.style.marginLeft = '0';
     containerGolden.appendChild(logo);
     containerGolden.appendChild(arrowDown);
+    containerGolden.appendChild(createMenu());
     wraper.appendChild(containerGolden);
     body.appendChild(wraper);
+
     loadWritesFrontPage();
     loadMenuButton();
     newPageCheck();
@@ -78,6 +80,9 @@ function loadMenuButton(){
         // console.log()
 
         if(!collapsed) {
+            menuContainer.onmouseover = null;
+            menuContainer.onmouseleave = null;
+
             topBorder.style.transform = 'rotate(-90deg)';
             setTimeout(() => {
                 topBorder.style.transform = 'translateX(-5px) rotate(-90deg)';
@@ -95,18 +100,52 @@ function loadMenuButton(){
                 }, 500);
             }, 500);
         } else {
-            topBorder.style.transform = 'rotate(0)';
-           
-            bottomBorder.style.transform = 'rotate(0)';
+            topBorder.style.transform = 'rotate(0) translateY(0)';
+            bottomBorder.style.transform = 'rotate(0) translateY(0)';
+
+            menuContainer.onmouseover = () => {
+                topBorder.style.transform = 'rotate(0) translateY(-3px)';
+                bottomBorder.style.transform = 'rotate(0) translateY(3px)';
+            }
+            menuContainer.onmouseleave = () => {
+                topBorder.style.transform = 'rotate(0) translateY(0)';
+                bottomBorder.style.transform = 'rotate(0) translateY(0)';
+            }
            
         }
     };
 }
 
-// function createMenu(collapsed){
-//     let menu = document.createElement('div');
+function createMenu(){
+    let menu = document.createElement('div');
+    let homeButton = createMenuElement('Домой');
+    let aboutButton = createMenuElement('О нас');
+    let advantagesButton = createMenuElement('Почему мы');
+    let contactButton = createMenuElement('Контакты');
 
-// }
+    menu.classList.add('menu-wrapper');
+
+    menu.appendChild(homeButton);
+    menu.appendChild(aboutButton);
+    menu.appendChild(advantagesButton);
+    menu.appendChild(contactButton);
+
+    return menu;
+}
+
+function createMenuElement(content){
+    let menuElement = document.createElement('span');
+    let menuElementContent = document.createElement('p');
+
+    menuElement.classList.add('menu-element');
+    menuElementContent.classList.add('menu-content');
+
+    menuElementContent.textContent = content;
+
+    menuElement.appendChild(menuElementContent);
+
+    return menuElement;
+}
 
 function loadWritesFrontPage(){
     let informationDescriptionText = 'Мега Транс всегда заботится о своих клиентах, с нами Вы можете позволить себе не волноваться и провести время как всегда хотели.';
