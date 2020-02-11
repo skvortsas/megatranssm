@@ -60,6 +60,8 @@ function loadMenuButton(){
     let topBorder = document.createElement('div');
     let bottomBorder = document.createElement('div');
     let containerGolden = document.getElementsByClassName('container-front-page')[0];
+    let menuWrapper = document.getElementsByClassName('menu-wrapper')[0];
+    let menuElements = document.getElementsByClassName('menu-element');
     let collapsed = true;
 
     menuContainer.classList.add('menu-container');
@@ -68,7 +70,7 @@ function loadMenuButton(){
 
     menuContainer.setAttribute('data-aos', 'flip-right');
     menuContainer.setAttribute('data-aos-duration', 2000);
-    menuContainer.setAttribute('data-aos-delay', 1000);
+    menuContainer.setAttribute('data-aos-delay', 600);
 
     menuContainer.appendChild(topBorder);
     menuContainer.appendChild(bottomBorder);
@@ -77,11 +79,18 @@ function loadMenuButton(){
     //adding stick animation on click
     menuContainer.onclick = () => {
         collapsed = !collapsed;
-        // console.log()
 
         if(!collapsed) {
             menuContainer.onmouseover = null;
             menuContainer.onmouseleave = null;
+            //show menu container
+            menuWrapper.style.display = 'flex';
+
+            for (let i=0; i< menuElements.length; i++){
+                //I don't inderstand why it colors like it doesn't have transituin time
+                menuElements[i].style.transitionDuration = '2s';
+                menuElements[i].style.backgroundColor = 'rgba(32,32,32,.89)';
+            }
 
             topBorder.style.transform = 'rotate(-90deg)';
             setTimeout(() => {
@@ -102,6 +111,7 @@ function loadMenuButton(){
         } else {
             topBorder.style.transform = 'rotate(0) translateY(0)';
             bottomBorder.style.transform = 'rotate(0) translateY(0)';
+            menuWrapper.style.display = 'none';
 
             menuContainer.onmouseover = () => {
                 topBorder.style.transform = 'rotate(0) translateY(-3px)';
