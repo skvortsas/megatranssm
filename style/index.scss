@@ -356,15 +356,43 @@ body{
     left: calc(1% + 2px);
     right: calc(1% + 2px);
 
+    &::before{
+        content: '';
+        width: 0%;
+        background-color: rgba(32,32,32,.89);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transition: 0.3s linear;
+        z-index: -1;
+        animation-name: slideBackground;
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+    }
+
     .menu-element{
+        display: block;
         padding-top: 15%;
         border: 1px solid #ce9f51;
         text-align: center;
         width: 100%;
         background-color: transparent;
         color: white;
-        font-size: 30px;
         font-weight: 600;
-        transition: 2s ease-in-out;
+
+        &>p{
+            font-size: 30px;
+        }
+    }
+}
+
+@keyframes slideBackground{
+    from{
+        width: 0%;
+    }
+
+    to{
+        width: 100%;
     }
 }

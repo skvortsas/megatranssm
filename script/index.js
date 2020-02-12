@@ -85,11 +85,10 @@ function loadMenuButton(){
             menuContainer.onmouseleave = null;
             //show menu container
             menuWrapper.style.display = 'flex';
+            
 
             for (let i=0; i< menuElements.length; i++){
-                //I don't inderstand why it colors like it doesn't have transituin time
-                menuElements[i].style.transitionDuration = '2s';
-                menuElements[i].style.backgroundColor = 'rgba(32,32,32,.89)';
+                //I don't inderstand why it colors like it doesn't have transition duration
             }
 
             topBorder.style.transform = 'rotate(-90deg)';
