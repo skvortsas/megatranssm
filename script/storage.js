@@ -41,4 +41,16 @@ let pages = [
     }
 ]
 
-export default pages;
+let abilityToScroll = {
+    ability: true,
+
+    get () {
+        return abilityToScroll.ability;
+    },
+
+    set (newAbility) {
+        abilityToScroll.ability = newAbility;
+    }
+}
+
+export {pages, abilityToScroll};

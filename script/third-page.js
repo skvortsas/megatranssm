@@ -1,4 +1,4 @@
-import pages from './storage';
+import {pages} from './storage';
 
 export default function thirdPage(informationContainer, informationHeader, informationDescription, pageNumber){
     let note = document.getElementsByClassName('advantage-note')[0];

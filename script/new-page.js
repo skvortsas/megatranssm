@@ -1,4 +1,4 @@
-import pages from './storage';
+import {pages, abilityToScroll} from './storage';
 import firstPageStyle from './first-page';
 import secondPageStyle from './second-page';
 import thirdPageStyle from './third-page';
@@ -17,7 +17,7 @@ export default function newPageCheck(){
         let advantage = document.getElementsByClassName('advantage')[0];
         let contactInformation = document.getElementsByClassName('contact-information')[0];
         //if the user is trying to scroll down and current page is not the last one
-        if ((e.deltaY > 0) && allowScroll && containerGolden.id < pages.length - 1) {
+        if ((e.deltaY > 0) && allowScroll && (containerGolden.id < pages.length - 1) && abilityToScroll.get()) {
             allowScroll = false;
 
                 informationHeader.classList.remove('aos-animate');
@@ -41,7 +41,7 @@ export default function newPageCheck(){
                     setPageStyle(containerGolden.id, informationHeader, informationDescription);
                 }, 1200);
             //else if the user is trying to scroll up and current page is not the first one
-        } else if ((e.deltaY < 0) && allowScroll && containerGolden.id > 0) {
+        } else if ((e.deltaY < 0) && allowScroll && containerGolden.id > 0 && abilityToScroll.get()) {
             allowScroll = false;
 
                 if(image){

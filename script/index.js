@@ -3,6 +3,7 @@ import webfont from 'webfontloader';
 import '../style/index.scss';
 import '../node_modules/aos/dist/aos.css';
 import newPageCheck from './new-page.js';
+import {abilityToScroll} from './storage'
 
 let logo = document.getElementsByClassName('logo')[0];
 logo.onanimationend = () => {
@@ -61,7 +62,6 @@ function loadMenuButton(){
     let bottomBorder = document.createElement('div');
     let containerGolden = document.getElementsByClassName('container-front-page')[0];
     let menuWrapper = document.getElementsByClassName('menu-wrapper')[0];
-    let menuElements = document.getElementsByClassName('menu-element');
     let collapsed = true;
 
     menuContainer.classList.add('menu-container');
@@ -76,16 +76,22 @@ function loadMenuButton(){
     menuContainer.appendChild(bottomBorder);
     containerGolden.appendChild(menuContainer);
 
-    //adding stick animation on click
     menuContainer.onclick = () => {
         collapsed = !collapsed;
+        
 
         if(!collapsed) {
             menuContainer.onmouseover = null;
             menuContainer.onmouseleave = null;
             //show menu container
             menuWrapper.style.display = 'flex';
+            //fill the border at the bottom
+            containerGolden.style.backgroundSize = '100%, 100%, 100%, 50%, 50%';
+            //block scroll for user
+            abilityToScroll.set(false);
+            console.log(abilityToScroll.get());
 
+            //rotate menu button elements
             topBorder.style.transform = 'rotate(-90deg)';
             setTimeout(() => {
                 topBorder.style.transform = 'translateX(-5px) rotate(-90deg)';
@@ -106,6 +112,10 @@ function loadMenuButton(){
             topBorder.style.transform = 'rotate(0) translateY(0)';
             bottomBorder.style.transform = 'rotate(0) translateY(0)';
             menuWrapper.style.display = 'none';
+            containerGolden.style.backgroundSize = '100%, 100%, 100%, 48%, 48%';
+            //enable scrolling for user
+            abilityToScroll.set(true);
+            console.log(abilityToScroll.get());
 
             menuContainer.onmouseover = () => {
                 topBorder.style.transform = 'rotate(0) translateY(-3px)';
