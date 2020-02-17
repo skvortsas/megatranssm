@@ -41,6 +41,7 @@ let pages = [
     }
 ]
 
+//made it this way because.....why the hell not???
 let abilityToScroll = {
     ability: true,
 

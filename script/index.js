@@ -78,7 +78,7 @@ function loadMenuButton(){
 
     menuContainer.onclick = () => {
         collapsed = !collapsed;
-        
+        colorMenuElementHeader(containerGolden.id, menuWrapper);
 
         if(!collapsed) {
             menuContainer.onmouseover = null;
@@ -89,7 +89,6 @@ function loadMenuButton(){
             containerGolden.style.backgroundSize = '100%, 100%, 100%, 50%, 50%';
             //block scroll for user
             abilityToScroll.set(false);
-            console.log(abilityToScroll.get());
 
             //rotate menu button elements
             topBorder.style.transform = 'rotate(-90deg)';
@@ -115,7 +114,6 @@ function loadMenuButton(){
             containerGolden.style.backgroundSize = '100%, 100%, 100%, 48%, 48%';
             //enable scrolling for user
             abilityToScroll.set(true);
-            console.log(abilityToScroll.get());
 
             menuContainer.onmouseover = () => {
                 topBorder.style.transform = 'rotate(0) translateY(-3px)';
@@ -128,6 +126,36 @@ function loadMenuButton(){
            
         }
     };
+}
+
+function colorMenuElementHeader(id, menuWrapper){
+
+    Array.from(menuWrapper.children).forEach(menuElement => {
+        menuElement.style.color = 'white';
+        menuElement.firstChild.style.borderBottom = 'none';
+    });
+
+    switch (id) {
+        case '0':
+            drawBorder(menuWrapper.firstChild);
+            break;
+        case '1':
+            drawBorder(menuWrapper.children[1]);
+            break;
+        case '2':
+        case '3':
+        case '4':
+            drawBorder(menuWrapper.children[2]);
+            break;
+        case '5':
+            drawBorder(menuWrapper.lastChild);
+            break;
+    }
+}
+
+function drawBorder(menuElement){
+    menuElement.style.color = '#ce9f51';
+    menuElement.firstChild.style.borderBottom = '3px solid #ce9f51';
 }
 
 function createMenu(){
