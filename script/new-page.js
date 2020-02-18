@@ -6,10 +6,46 @@ import contactPage from './contact-page';
 
 let allowScroll = true;
 
-export default function newPageCheck(){
+export default function newPageCheck(index){
     let informationHeader = document.getElementsByClassName('information-header')[0];
     let informationDescription = document.getElementsByClassName('information-description')[0];
     let containerGolden = document.getElementsByClassName('container-front-page')[0];  
+
+    if (index !== undefined){
+        let image = document.getElementsByClassName('image')[0];
+        let note = document.getElementsByClassName('advantage-note')[0];
+        let advantage = document.getElementsByClassName('advantage')[0];
+        let contactInformation = document.getElementsByClassName('contact-information')[0];
+
+        informationHeader.classList.remove('aos-animate');
+        informationDescription.classList.remove('aos-animate');
+
+        if(image){
+            image.classList.remove('aos-animate');
+        }
+                
+        if(note){
+            note.classList.remove('aos-animate');
+        }
+
+        if(advantage){
+            advantage.classList.remove('aos-animate');
+        }
+
+        if (contactInformation){
+            removeContactPageContent(contactInformation);
+        }
+
+        setTimeout(() => {
+            if (index !== 3)
+                containerGolden.id = index;
+            else
+                containerGolden.id = index + 2;
+            getNewContent(informationHeader, pages[containerGolden.id].informationHeader);
+            getNewContent(informationDescription, pages[containerGolden.id].informationDescription);
+            setPageStyle(containerGolden.id, informationHeader, informationDescription);
+        }, 1200);
+    }
     
     document.addEventListener('wheel', e => {
         let image = document.getElementsByClassName('image')[0];

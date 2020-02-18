@@ -3,7 +3,8 @@ import webfont from 'webfontloader';
 import '../style/index.scss';
 import '../node_modules/aos/dist/aos.css';
 import newPageCheck from './new-page.js';
-import {abilityToScroll} from './storage'
+import {abilityToScroll} from './storage';
+import menuElements from './menu-elements';
 
 let logo = document.getElementsByClassName('logo')[0];
 logo.onanimationend = () => {
@@ -78,7 +79,7 @@ function loadMenuButton(){
 
     menuContainer.onclick = () => {
         collapsed = !collapsed;
-        colorMenuElementHeader(containerGolden.id, menuWrapper);
+        menuElements(containerGolden, menuWrapper);
 
         if(!collapsed) {
             menuContainer.onmouseover = null;
@@ -126,36 +127,6 @@ function loadMenuButton(){
            
         }
     };
-}
-
-function colorMenuElementHeader(id, menuWrapper){
-
-    Array.from(menuWrapper.children).forEach(menuElement => {
-        menuElement.style.color = 'white';
-        menuElement.firstChild.style.borderBottom = 'none';
-    });
-
-    switch (id) {
-        case '0':
-            drawBorder(menuWrapper.firstChild);
-            break;
-        case '1':
-            drawBorder(menuWrapper.children[1]);
-            break;
-        case '2':
-        case '3':
-        case '4':
-            drawBorder(menuWrapper.children[2]);
-            break;
-        case '5':
-            drawBorder(menuWrapper.lastChild);
-            break;
-    }
-}
-
-function drawBorder(menuElement){
-    menuElement.style.color = '#ce9f51';
-    menuElement.firstChild.style.borderBottom = '3px solid #ce9f51';
 }
 
 function createMenu(){
