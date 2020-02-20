@@ -3,7 +3,7 @@ import webfont from 'webfontloader';
 import '../style/index.scss';
 import '../node_modules/aos/dist/aos.css';
 import newPageCheck from './new-page.js';
-import {abilityToScroll} from './storage';
+import {abilityToScroll, menuCollapse} from './storage';
 import menuElements from './menu-elements';
 
 let logo = document.getElementsByClassName('logo')[0];
@@ -63,7 +63,6 @@ function loadMenuButton(){
     let bottomBorder = document.createElement('div');
     let containerGolden = document.getElementsByClassName('container-front-page')[0];
     let menuWrapper = document.getElementsByClassName('menu-wrapper')[0];
-    let collapsed = true;
 
     menuContainer.classList.add('menu-container');
     topBorder.classList.add('border-menu-top');
@@ -78,10 +77,10 @@ function loadMenuButton(){
     containerGolden.appendChild(menuContainer);
 
     menuContainer.onclick = () => {
-        collapsed = !collapsed;
+        menuCollapse.set(!menuCollapse.get());
         menuElements(containerGolden, menuWrapper);
 
-        if(!collapsed) {
+        if(!menuCollapse.get()) {
             menuContainer.onmouseover = null;
             menuContainer.onmouseleave = null;
             //show menu container

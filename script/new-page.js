@@ -1,4 +1,4 @@
-import {pages, abilityToScroll} from './storage';
+import {pages, abilityToScroll, menuCollapse} from './storage';
 import firstPageStyle from './first-page';
 import secondPageStyle from './second-page';
 import thirdPageStyle from './third-page';
@@ -17,6 +17,8 @@ export default function newPageCheck(index){
         let advantage = document.getElementsByClassName('advantage')[0];
         let contactInformation = document.getElementsByClassName('contact-information')[0];
 
+        menuCollapse.set(!menuCollapse.get());
+        setInitialMenuButton(containerGolden);
         informationHeader.classList.remove('aos-animate');
         informationDescription.classList.remove('aos-animate');
 
@@ -37,7 +39,7 @@ export default function newPageCheck(index){
         }
 
         setTimeout(() => {
-            if (index !== 3)
+            if (index < 3)
                 containerGolden.id = index;
             else
                 containerGolden.id = index + 2;
@@ -108,6 +110,24 @@ export default function newPageCheck(index){
     });
 }
 
+function setInitialMenuButton(containerGolden){
+    let menuContainer = document.getElementsByClassName('menu-container')[0];
+    let topBorder = document.getElementsByClassName('border-menu-top')[0];
+    let bottomBorder = document.getElementsByClassName('border-menu-bottom')[0];
+
+    topBorder.style.transform = 'rotate(0) translateY(0)';
+    bottomBorder.style.transform = 'rotate(0) translateY(0)';
+    containerGolden.style.backgroundSize = '100%, 100%, 100%, 48%, 48%';
+
+    menuContainer.onmouseover = () => {
+        topBorder.style.transform = 'rotate(0) translateY(-3px)';
+        bottomBorder.style.transform = 'rotate(0) translateY(3px)';
+    }
+    menuContainer.onmouseleave = () => {
+        topBorder.style.transform = 'rotate(0) translateY(0)';
+        bottomBorder.style.transform = 'rotate(0) translateY(0)';
+    }
+}
 
 function removeContactPageContent(contactInformation){
     contactInformation.classList.remove('aos-animate');

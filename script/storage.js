@@ -43,6 +43,7 @@ let pages = [
 
 //made it this way because.....why the hell not???
 let abilityToScroll = {
+    //I know that this fild should be private
     ability: true,
 
     get () {
@@ -54,4 +55,16 @@ let abilityToScroll = {
     }
 }
 
-export {pages, abilityToScroll};
+let menuCollapse = {
+    collapsed: true,
+
+    get () {
+        return menuCollapse.collapsed;
+    },
+
+    set (newState) {
+        menuCollapse.collapsed = newState;
+    }
+}
+
+export {pages, abilityToScroll, menuCollapse};
