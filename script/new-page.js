@@ -39,13 +39,18 @@ export default function newPageCheck(index){
         }
 
         setTimeout(() => {
-            if (index < 3)
+            if (!abilityToScroll.get()){
+                if (index < 3)
+                    containerGolden.id = index;
+                else
+                    containerGolden.id = index + 2;
+            } else {
                 containerGolden.id = index;
-            else
-                containerGolden.id = index + 2;
+            }
             getNewContent(informationHeader, pages[containerGolden.id].informationHeader);
             getNewContent(informationDescription, pages[containerGolden.id].informationDescription);
             setPageStyle(containerGolden.id, informationHeader, informationDescription);
+            abilityToScroll.set(true);
         }, 1200);
     }
     

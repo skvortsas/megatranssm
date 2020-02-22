@@ -5,6 +5,7 @@ import '../node_modules/aos/dist/aos.css';
 import newPageCheck from './new-page.js';
 import {abilityToScroll, menuCollapse} from './storage';
 import menuElements from './menu-elements';
+import arrowPressEvent from './arrow-down';
 
 let logo = document.getElementsByClassName('logo')[0];
 logo.onanimationend = () => {
@@ -55,6 +56,7 @@ function getFrontPage(){
     loadWritesFrontPage();
     loadMenuButton();
     newPageCheck();
+    arrowPressEvent(arrowDown, containerGolden, newPageCheck);
 }
 
 function loadMenuButton(){
