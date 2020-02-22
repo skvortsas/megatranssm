@@ -18,6 +18,7 @@ export default function secondPage(informationContainer, informationHeader, info
     informationContainer.style.marginLeft = '5%';
     informationContainer.style.marginRight = '20%';
     informationContainer.style.marginTop = '15%';
+    informationContainer.style.padding = '0';
     informationHeader.style.fontSize = '30px';
     informationHeader.style.width = '100%';
     informationHeader.style.marginLeft = '30px';
