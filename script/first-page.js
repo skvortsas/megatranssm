@@ -17,7 +17,7 @@ export default function firstPage(informationContainer, informationHeader, infor
     informationDescription.style.position = 'relative';
     informationDescription.style.fontWeight = '400';
 
-    if(window.matchMedia('(max-width: 1400px)').matches){
+    if(window.matchMedia('(max-width: 1500px)').matches){
         informationContainer.style.marginTop = '10%';
         informationHeader.style.fontSize = '55px';
         informationDescription.style.width = '60%';
