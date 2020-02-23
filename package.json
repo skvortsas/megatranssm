@@ -21,6 +21,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "file-loader": "^5.0.2",
+    "toastr": "^2.1.4",
     "url-loader": "^3.0.0",
     "webfontloader": "^1.6.28"
   },

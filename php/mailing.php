@@ -9,10 +9,10 @@
         $response = array();
 
         if (empty($name)){
-            $error = 'Ошибка в поле имя';
+            $error = 'Не указано имя';
         }
         if (empty($phone) && empty($mailFrom)){
-            $error = 'Ошибка в поле телефон или e-mail';
+            $error = 'Не указан телефон или e-mail';
         }
         if (empty($phone)){
             $phone = 'Телефон не указан';
@@ -27,10 +27,9 @@
         } else {
             $subject = 'Запрос обратного звонка с сайта!';
             $body    = '
-            <strong>Имя: </strong>'.$name.'<br />
-            <strong>Телефон: </strong>'.$phone.'<br />
-            <strong>Почта: </strong>'.$mailFrom.'<br />
-        ';
+            Имя: '.$name.'
+            Телефон: '.$phone.'
+            Почта: '.$mailFrom;
 
         mail($mailTo, $subject, $body);
         $response['error'] = false;

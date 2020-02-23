@@ -1,3 +1,5 @@
+import toastr from 'toastr';
+
 let contactInformation = document.createElement('div');
 let informationContainer = document.createElement('span');
 let company = document.createElement('p');
@@ -59,17 +61,54 @@ function addFormContent(pages, pageNumber){
     //adding the content
     formNote.textContent = pages[pageNumber].formNote;
     nameField.placeholder = 'Имя';
+    nameField.autocomplete = 'off';
+    nameField.name = 'name';
     vanishPlaceholder(nameField, 'Имя');
     phoneField.placeholder = 'Телефон';
     phoneField.type = 'phone';
+    phoneField.name = 'phone';
+    phoneField.autocomplete = 'off';
     vanishPlaceholder(phoneField, 'Телефон');
     emailField.placeholder = 'E-mail';
     emailField.type = 'email';
+    emailField.name = 'mail';
+    emailField.autocomplete = 'off';
     vanishPlaceholder(emailField, 'E-mail');
     sendButton.textContent = 'Отправить';
 
     formContainer.onsubmit = event => {
         event.preventDefault();
+        sendButton.disabled = true;
+
+        let inputs = document.getElementsByClassName('form-input');
+        let fd = new FormData();
+
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "preventDuplicates": true,
+            "positionClass": "toast-top-center"
+        };
+
+        for (let input of inputs){
+            fd.append(input.name, input.value);
+        }
+
+        fetch('php/mailing.php', {
+            method: 'POST',
+            body: fd
+        }).then(res => res.json())
+        .then(ans => {
+            if (ans.error){
+                toastr["error"](ans.message, "Ошибка");
+            } else {
+                toastr["success"](ans.message, "Удачно");
+                nameField.value = '';
+                phoneField.value = '';
+                emailField.value = '';
+            }
+            sendButton.disabled = false;
+        });
     };
 
     //append all elements
