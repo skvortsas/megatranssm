@@ -35,6 +35,13 @@ export default function thirdPage(informationContainer, informationHeader, infor
         informationDescription.style.fontSize = '25px';
     }
 
+    if (window.matchMedia('(max-width: 500px)').matches){
+        informationContainer.style.marginTop = '60%';
+        informationHeader.style.fontSize = '20px';
+        informationHeader.style.width = '100%';
+        informationDescription.style.display = 'none';
+    }
+
     createImage(informationContainer, pageNumber);
     createAdvantage(informationHeader, pages[pageNumber].advantage);
     pageNumber === '2' ? createNote(informationContainer, pages[pageNumber].note) : false;

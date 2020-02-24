@@ -1,5 +1,6 @@
 export default function arrowPressEvent (arrow, containerGolden, newPageCheck) {
     arrow.onclick = () => {
-        newPageCheck(++containerGolden.id);
+        if (containerGolden.id < 5)
+            newPageCheck(++containerGolden.id);
     };
 }

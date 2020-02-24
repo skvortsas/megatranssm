@@ -51,6 +51,7 @@ export default function contactPage(mainContainer, pages, pageNumber){
 }
 
 function addFormContent(pages, pageNumber){
+    let phoneReg = /^[+]*[7,8]?[(]*[0-9]{0,4}[)]*[-\s\./0-9]{7,11}$/;
     //adding stylings
     formNote.classList.add('form-note');
     nameField.classList.add('form-input');
@@ -64,11 +65,25 @@ function addFormContent(pages, pageNumber){
     nameField.autocomplete = 'off';
     nameField.name = 'name';
     vanishPlaceholder(nameField, 'Имя');
+    nameField.addEventListener('focusout', () => {
+        if (nameField.value !== ''){
+            nameField.style.borderColor = 'green';
+        } else {
+            nameField.style.borderColor = 'gray';
+        }
+    });
     phoneField.placeholder = 'Телефон';
     phoneField.type = 'phone';
     phoneField.name = 'phone';
     phoneField.autocomplete = 'off';
     vanishPlaceholder(phoneField, 'Телефон');
+    phoneField.addEventListener('focusout', () => {
+        if (!phoneValidation(phoneField.value, phoneReg) && phoneField.value !== ''){
+            phoneField.style.borderColor = 'red';
+        } else {
+            phoneField.style.borderColor = 'green';
+        }
+    });
     emailField.placeholder = 'E-mail';
     emailField.type = 'email';
     emailField.name = 'mail';
@@ -82,7 +97,6 @@ function addFormContent(pages, pageNumber){
 
         let inputs = document.getElementsByClassName('form-input');
         let fd = new FormData();
-
         toastr.options = {
             "closeButton": true,
             "progressBar": true,
@@ -117,6 +131,13 @@ function addFormContent(pages, pageNumber){
     formContainer.appendChild(phoneField);
     formContainer.appendChild(emailField);
     formContainer.appendChild(sendButton);
+}
+
+function phoneValidation(phone, reg) {
+    if (phone.match(reg)) {
+        return true;
+    }
+    return false;
 }
 
 function vanishPlaceholder(element, placeholderContent){
