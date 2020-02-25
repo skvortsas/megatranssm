@@ -47,6 +47,9 @@ function getFrontPage(){
     body.style.backgroundColor = '#202020';
     logo.style.opacity = '1';
     logo.style.marginLeft = '0';
+    if( window.matchMedia('(max-width: 500px)').matches ) {
+        logo.style.margin = '1% 0 0 1%';
+    }
     containerGolden.appendChild(logo);
     containerGolden.appendChild(arrowDown);
     containerGolden.appendChild(createMenu());

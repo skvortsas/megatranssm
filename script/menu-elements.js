@@ -6,7 +6,6 @@ export default function menuElementController(containerGolden, menuWrapper){
     Array.from(menuWrapper.children).forEach((menuElement, index) => {
         menuElement.onclick = () => {
             newPage(index);
-            //TODO: the menu button(top right cornor) not animated and collapsed var not changed
             menuWrapper.style.display = 'none';
         };
     });
