@@ -90,8 +90,11 @@ function loadMenuButton(){
             menuContainer.onmouseleave = null;
             //show menu container
             menuWrapper.style.display = 'flex';
+            if (window.matchMedia('(max-width: 500px)').matches) {
+                menuWrapper.style.display = 'block';
+            }
             //fill the border at the bottom
-            containerGolden.style.backgroundSize = '100%, 100%, 100%, 50%, 50%';
+            containerGolden.style.backgroundSize = '100%, 100%, 100%, 51%, 51%';
             //block scroll for user
             abilityToScroll.set(false);
 

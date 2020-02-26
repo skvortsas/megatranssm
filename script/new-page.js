@@ -204,6 +204,9 @@ function setInitialMenuButton(containerGolden){
     topBorder.style.transform = 'rotate(0) translateY(0)';
     bottomBorder.style.transform = 'rotate(0) translateY(0)';
     containerGolden.style.backgroundSize = '100%, 100%, 100%, 48%, 48%';
+    if (window.matchMedia('(max-width: 500px)').matches) {
+        containerGolden.style.backgroundSize = '100%, 100%, 100%, 45%, 45%';
+    }
 
     menuContainer.onmouseover = () => {
         topBorder.style.transform = 'rotate(0) translateY(-3px)';
