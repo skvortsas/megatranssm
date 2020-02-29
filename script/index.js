@@ -105,16 +105,16 @@ function loadMenuButton(){
 
                 setTimeout(() => {
                     topBorder.style.transform = 'translate(-5px, 6px) rotate(-90deg)';
-                }, 500);
-            }, 500);
+                }, 300);
+            }, 300);
             bottomBorder.style.transform = 'rotate(90deg)';
             setTimeout(() => {
                 bottomBorder.style.transform = 'translateX(5px) rotate(90deg)';
             
                 setTimeout(() => {
                     bottomBorder.style.transform = 'translate(5px, -6px) rotate(90deg)';
-                }, 500);
-            }, 500);
+                }, 300);
+            }, 300);
         } else {
             topBorder.style.transform = 'rotate(0) translateY(0)';
             bottomBorder.style.transform = 'rotate(0) translateY(0)';
